@@ -3,18 +3,29 @@ import Custom_Input from "../utils/Custom_Input";
 import CustomButton from "../utils/CustomButton";
 import { useFormik } from "formik";
 import { resetPasswordSchema } from "../schemas";
+import { useFirebase } from "../context/Firebase";
 
 const ForgotPassword = () => {
-  const [creds, setCreds] = useState({
+  const creds = {
     email: "",
-  });
+  };
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: creds,
-      validationSchema: resetPasswordSchema,
-      onSubmit: (values, action) => {},
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+  } = useFormik({
+    initialValues: creds,
+    validationSchema: resetPasswordSchema,
+    onSubmit: async (values, action) => {
+      await resetPassword({ values });
+      action.resetForm();
+    },
+  });
 
   const [disable, setDisable] = useState(true);
 
@@ -33,8 +44,30 @@ const ForgotPassword = () => {
   };
 
   useEffect(() => {
+    setFirebaseError((old) => "");
+    setTimeout(() => {
+      setFirebaseRes((old) => "");
+    }, 4000);
+
     stDisable();
-  }, [errors, touched]);
+  }, [errors, touched, values]);
+
+  const [firebaseError, setFirebaseError] = useState("");
+  const [firebaseRes, setFirebaseRes] = useState("");
+
+  const firebase = useFirebase();
+
+  const resetPassword = async ({ values }) => {
+    try {
+      await firebase.resetPassword({ values }).then(() => {
+        setFirebaseRes(
+          (old) => (old = `Password reset link sent to ${values.email}`)
+        );
+      });
+    } catch (error) {
+      setFirebaseError((old) => error);
+    }
+  };
 
   return (
     <form className="!mt-16" onSubmit={handleSubmit}>
@@ -52,16 +85,32 @@ const ForgotPassword = () => {
         type="email"
         onChange={handleChange}
         onBlur={handleBlur}
-        value={values.password}
+        value={values.email}
       />
 
       <CustomButton
         type="submit"
         text="Send Email"
         containerStyles={"bg-white mt-4 mb-auto"}
-        onClick={handleSubmit}
-        disabled={disable}
+        disabled={isSubmitting}
+        loader
       />
+      {firebaseError && (
+        <p className="text-[red] pt-5 text-xl text-center">
+          {firebaseError.code
+            .substring(
+              firebaseError.code.indexOf("/") + 1,
+              firebaseError.code.length
+            )
+            .replaceAll("-", " ")
+            .toUpperCase()}
+        </p>
+      )}
+      {firebaseRes && (
+        <p className="text-[green] pt-5 text-center text-l font-semibold">
+          {firebaseRes}
+        </p>
+      )}
     </form>
   );
 };

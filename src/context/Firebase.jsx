@@ -10,6 +10,7 @@ import {
   signOut,
   updateProfile,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import {
   setDoc,
@@ -89,9 +90,7 @@ const FirebaseProvider = (props) => {
     });
   };
 
-  // console.log(user?.email.substring(0,user.email.indexOf('@')));
-
-  const signInWithGoogle = async () => {
+  async function signInWithGoogle() {
     await signInWithPopup(firebaseAuth, googleAuth).then(async (result) => {
       const ref = doc(database, "users", result.user.uid);
       await setDoc(ref, {
@@ -106,7 +105,7 @@ const FirebaseProvider = (props) => {
         id: result.user.uid,
       });
     });
-  };
+  }
 
   const handleSignIn = async ({ values }) => {
     await signInWithEmailAndPassword(
@@ -115,10 +114,16 @@ const FirebaseProvider = (props) => {
       values.password
     );
   };
+
+  //Logout
   const Logout = () => {
     return signOut(firebaseAuth);
   };
 
+  // reset Password
+  const resetPassword = async ({ values }) => {
+    await sendPasswordResetEmail(firebaseAuth, values.email);
+  };
   return (
     <FirebaseContext.Provider
       value={{
@@ -130,6 +135,7 @@ const FirebaseProvider = (props) => {
         users,
         Logout,
         signInWithGoogle,
+        resetPassword,
       }}
     >
       {props.children}

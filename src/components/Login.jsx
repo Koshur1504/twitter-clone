@@ -11,22 +11,27 @@ import { useFormik } from "formik";
 import { signInSchema } from "../schemas";
 import ForgotPassword from "./ForgotPassword";
 
-
 const Login = ({ handleX, page, setPage, openSignUp }) => {
-  
   const initialValues = {
     email: "",
     password: "",
   };
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: initialValues,
-      validationSchema: signInSchema,
-      onSubmit: (values, action) => {
-        handleSignIn({ values });
-      },
-    });
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+  } = useFormik({
+    initialValues: initialValues,
+    validationSchema: signInSchema,
+    onSubmit: async (values, action) => {
+      await handleSignIn({ values });
+    },
+  });
 
   const [firebaseError, setFireBaseError] = useState("");
 
@@ -63,7 +68,7 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
 
   // Forgot password section
   // create modal state and function to toggle it
-  const [forgotPassword, setForgotPassword] = useState(true);
+  const [forgotPassword, setForgotPassword] = useState(false);
   const handleForgotPassword = () => {
     setForgotPassword((old) => !old);
   };
@@ -97,49 +102,50 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
                 <div className="line"></div>
               </div>
 
-              <Custom_Input
-                containerStyles={"w-full mb-4"}
-                placeHolder="Email"
-                name="email"
-                type="email"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
-              />
-              {errors.email && touched.email && (
-                <p className="Error_login">{errors.email}</p>
-              )}
-              <Custom_Input
-                containerStyles={"w-full mb-4"}
-                placeHolder={"Password"}
-                name="password"
-                type="password"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.password}
-              />
-              {errors.password && touched.password && (
-                <p className="Error_login">{errors.password}</p>
-              )}
-              {firebaseError && (
-                <p className="Error_login">
-                  {firebaseError.code
-                    .substring(
-                      firebaseError.code.indexOf("/") + 1,
-                      firebaseError.code.length
-                    )
-                    .replaceAll("-", " ")
-                    .toUpperCase()}
-                </p>
-              )}
-              <CustomButton
-                type="submit"
-                text="Sign in"
-                containerStyles={"bg-white mb-4"}
-                loader="true"
-                onClick={handleSubmit}
-              />
-
+              <form onSubmit={handleSubmit}>
+                <Custom_Input
+                  containerStyles={"w-full mb-4"}
+                  placeHolder="Email"
+                  name="email"
+                  type="email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                />
+                {errors.email && touched.email && (
+                  <p className="Error_login">{errors.email}</p>
+                )}
+                <Custom_Input
+                  containerStyles={"w-full mb-4"}
+                  placeHolder={"Password"}
+                  name="password"
+                  type="password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                />
+                {errors.password && touched.password && (
+                  <p className="Error_login">{errors.password}</p>
+                )}
+                {firebaseError && (
+                  <p className="Error_login">
+                    {firebaseError.code
+                      .substring(
+                        firebaseError.code.indexOf("/") + 1,
+                        firebaseError.code.length
+                      )
+                      .replaceAll("-", " ")
+                      .toUpperCase()}
+                  </p>
+                )}
+                <CustomButton
+                  type="submit"
+                  text="Sign in"
+                  containerStyles={"bg-white mb-4"}
+                  loader="true"
+                  disabled={isSubmitting}
+                />
+              </form>
               <CustomButton
                 text="Forgot Password?"
                 textColor="text-white"
@@ -155,7 +161,10 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
           )}
 
           <p className="para mt-auto mb-16">
-            Don't have an account? <a className="hover:cursor-pointer" onClick={signupButton}>Sign up</a>
+            Don't have an account?{" "}
+            <a className="hover:cursor-pointer" onClick={signupButton}>
+              Sign up
+            </a>
           </p>
         </div>
       </div>

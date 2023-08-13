@@ -65,7 +65,7 @@ const Signup = () => {
     setOpen(!open);
     setLogin(false);
   };
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(false);
   const handleSignin = () => {
     setLogin(!login);
     setOpen(false);
@@ -153,7 +153,14 @@ const Signup = () => {
           setErrorMsg={setErrorMsg}
         />
       )}
-      {login && <Login handleX={handleSignin} page={page} setPage={setPage} openSignUp={handleModal}/>}
+      {login && (
+        <Login
+          handleX={handleSignin}
+          page={page}
+          setPage={setPage}
+          openSignUp={handleModal}
+        />
+      )}
     </div>
   );
 };

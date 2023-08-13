@@ -12,7 +12,7 @@ const CustomButton = ({
 }) => {
   const svg = (
     <svg
-      class="w-5 h-5 mr-1 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+      className="w-5 h-5 mr-1 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -27,17 +27,24 @@ const CustomButton = ({
       />
     </svg>
   );
+  console.log(loader);
+  console.log(disabled);
 
   const [loading, setLoading] = useState(false);
+
   const handleClick = async () => {
-    setLoading((old) => (old = true));
     if (loader) {
       if (onClick) {
+        setLoading((old) => true);
         await onClick();
-        setLoading((old) => (old = false));
+        setLoading((old) => false);
+      }
+      if ((type = "submit")) {
+        setLoading((old) => disabled);
       }
     }
     if (!loader) {
+      setLoading((old) => true);
       onClick && (await onClick());
       setLoading((old) => (old = false));
     }
@@ -55,14 +62,16 @@ const CustomButton = ({
         type={type}
         disabled={disabled ? disabled : loading}
       >
-        {loading && svg}
+        {/* {loading && svg} */}
+        {disabled && svg}
 
         {!loading && icon && (
           <img className="h-[16px] w-[16px] m-0 p-0 pr-1" src={icon} alt="" />
         )}
 
         <p className={`${textColor}  font-bold m-0 p-0`}>
-          {loading ? "loading..." : text}
+          {disabled ? "loading..." : text}
+          
         </p>
       </button>
     </div>
