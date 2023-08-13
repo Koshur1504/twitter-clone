@@ -1,0 +1,30 @@
+.modal_2 h2 {
+  color: var(--twitter-white);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 22px;
+}
+.modal_2 .selector {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+}
+.modal_2 .selector label {
+  padding-top: 0px;
+  padding-top: 0px;
+  font-size: 15px;
+}
+.modal_2 .selector #bordered-checkbox-2 {
+  margin-top: 5px;
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--twitter-color);
+}
+.modal_2 p {
+  color: var(--twitter-gray);
+  line-height: 20px;
+  font-size: 14px;
+  margin-top: 60px;
+}

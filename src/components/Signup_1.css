@@ -1,0 +1,122 @@
+.modal_ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modal_ {
+  background-color: rgba(43, 66, 75, 0.3);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.modal {
+  width: 590px;
+  height: 640px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 20px;
+}
+.modal_head {
+  display: flex;
+  height: 35px;
+  margin: 10px 0 0 10px;
+  /* background-color: aqua; */
+  align-items: end;
+}
+.cross__button {
+  background-color: var(--twitter-dark);
+  border: none;
+  font-size: 27px;
+}
+.modal_step {
+  color: var(--twitter-white);
+  margin-left: 40px;
+  font-weight: 500;
+  font-size: 24px;
+}
+.cross {
+  color: var(--twitter-white);
+}
+.modal_content {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  width: 425px;
+  height: 500px;
+  margin: auto auto;
+  /* background-color: aqua; */
+}
+.modal_content h1 {
+  margin-top: 22px;
+  color: var(--twitter-white);
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 26px;
+}
+.nameerror {
+  color: red;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-top: 5px;
+  margin-bottom: 20px;
+}
+.phoneerror {
+  color: red;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+.modal_content a {
+  /* background-color: aqua; */
+  display: inline-block;
+  margin-left: auto;
+  padding-right: 5px;
+}
+.modal_content a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.modal_content h4 {
+  font-weight: 500;
+  margin-top: 50px;
+}
+.dob_consent {
+  margin-top: 5px;
+  color: var(--twitter-gray);
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 18px;
+}
+.birth {
+  display: flex;
+}
+.next__button {
+  position: absolute;
+  bottom: 25px;
+  left: 85px;
+  height: 53px;
+  width: 425px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--twitter-dark);
+  background-color: var(--twitter-gray);
+  cursor: default;
+  
+}
+.btnEnable {
+  background-color: var(--twitter-white);
+}
+.p3p{
+  color: var(--twitter-gray);
+  font-size: 12px;
+  margin-top: auto;
+  margin-bottom: 10px;
+}

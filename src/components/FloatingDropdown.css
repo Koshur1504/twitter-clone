@@ -1,0 +1,59 @@
+#downArrow {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+#label__1 {
+  font-size: 18px;
+  padding-top: 10px;
+  padding-left: 7px;
+  color: rgba(104, 98, 98, 1);
+}
+#default_outlined1 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.FloatinDropdown {
+  width: 180px;
+}
+.FloatinDropdown #option,
+#optionDay,
+#optionYear {
+  background-color: var(--twitter-dark);
+  display: none;
+}
+.FloatinDropdown > #default_outlined1 > .option {
+  background-color: var(--twitter-dark);
+}
+.day {
+  margin-left: 13px;
+  width: 90px;
+}
+.year {
+  margin-left: 13px;
+  width: 125px;
+}
+.optionDay {
+  background-color: var(--twitter-dark);
+}
+.p3 {
+  border: 2px solid rgb(47, 182, 34);
+}
+
+.p3bd {
+  margin-top: 28px;
+  width: 425px;
+}
+#default_outlined4:focus + label {
+  padding-left: 7px;
+  padding-top: 8px;
+  color: var(--twitter-color);
+  position: absolute;
+  top: 20px;
+}
+#default_outlined4 + label{
+  margin-top: 15px;
+  padding-top: 25px;
+}

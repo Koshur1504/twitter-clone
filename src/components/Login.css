@@ -1,0 +1,63 @@
+.loginPage {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  background-color: rgba(20, 131, 182, 0.1);
+}
+.Modal {
+  width: 590px;
+  height: 640px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 20px;
+  display: flex;
+  align-items: start;
+}
+.loginPage .Modal .cross__button {
+  position: absolute;
+  margin-left: 10px;
+  background-color: transparent;
+}
+.loginPage .Modal .login {
+  margin-left: auto;
+  margin-right: auto;
+  width: 49%;
+  
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.X_image {
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+.login h1 {
+  color: var(--twitter-white);
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+.login .para{
+  color: gray;
+  font-size: 14px;
+
+}
+.Error_login{
+  margin-top: -10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: red;
+  font-size: 14px;
+
+}

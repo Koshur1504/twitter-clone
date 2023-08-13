@@ -1,0 +1,45 @@
+.default_outlined {
+  height: 57px;
+  border: 1px solid rgba(146, 140, 140, 0.4);
+  padding-left: 8px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  padding-top: 15px;
+  text-decoration: none;
+}
+.default_outlined:focus {
+  border: 2px solid var(--twitter-color);
+  padding-top: 15px;
+}
+#label__ {
+  padding-left: 7px;
+  font-size: 16px;
+  color: rgba(104, 98, 98, 1);
+  padding-top: 8px;
+  padding-bottom: 9px;
+}
+#label__12 {
+  padding-left: 7px;
+  font-size: 16px;
+  color: rgba(104, 98, 98, 1);
+  padding-top: 8px;
+  padding-bottom: 9px;
+
+  position: absolute;
+  top:30px;
+}
+ #default_outlined:focus + label {
+  padding-left: 7px;
+  padding-top: 8px;
+  color: var(--twitter-color);
+  position: absolute;
+  top: 10px
+  
+}
+.errorborder {
+  border-color: red;
+}
+.p3{
+  border: 2px solid rgb(47, 182, 34);
+}

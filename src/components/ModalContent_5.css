@@ -1,0 +1,9 @@
+#modalContent_5 {
+}
+#modalContent_5 h1 {
+  align-self: center;
+  margin-top: 50%;
+}
+#modalContent_5 button {
+  background-color: var(--twitter-color);
+}

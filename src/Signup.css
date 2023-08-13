@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  --width: 53.9vw;
+}
+.hiddenscroll {
+  overflow-y: hidden;
+}
+.Signup_page {
+  width: 100vw;
+  background-color: var(--twitter-dark);
+  height: fit-content;
+}
+.Signup {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+.Signup .image {
+  background: url("./assets/login_cover.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex: 10%;
+  flex-shrink: 1;
+}
+
+.Signup .image img {
+  margin: auto;
+  width: 25vw;
+  height: 100%;
+}
+
+.Signup_section {
+  flex-shrink: 0;
+  background-color: var(--twitter-dark);
+  padding-right: 157px;
+}
+.Signup_section img {
+  width: 48px;
+  padding: 36.8px 0 0 36.8px;
+}
+.Signup_section h1 {
+  color: var(--twitter-white);
+  padding: 45px 0 0 36.8px;
+  font-size: 64px;
+  font-weight: 900;
+}
+.Signup_section h3 {
+  color: var(--twitter-white);
+  padding: 40px 0 0 36.8px;
+  font-size: 32px;
+  font-weight: 900;
+}
+.section {
+  margin: 28.8px 0 0 36.8px;
+  width: 300px;
+}
+.google_button {
+  background: var(--twitter-white);
+  color: var(--twitter-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0 0 0;
+  border: none;
+  border-radius: 50px;
+  height: 38.4px;
+  width: 300.4px;
+}
+.google_button img {
+  width: 18px;
+  padding: 0;
+  margin: 0;
+}
+.google_button p {
+  color: var(--twitter-dark);
+  font-size: 14.4px;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+.apple_button {
+  background: var(--twitter-white);
+  color: var(--twitter-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0 0 0;
+  border: none;
+  border-radius: 50px;
+  height: 40px;
+  width: 300.4px;
+}
+.Apple_icon {
+  width: 18px;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+.apple_button p {
+  color: var(--twitter-dark);
+  font-size: 14.4px;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+.separator {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.separator p {
+  padding: 0 4.8px 0.32px 4.8px;
+  color: var(--twitter-white);
+  font-size: 14.4px;
+}
+
+.separator .line {
+  flex: 1;
+  height: 1px;
+  background-color: rgb(255, 255, 255, 0.2);
+}
+
+.create_account {
+  background: var(--twitter-color);
+  color: var(--twitter-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 0 0;
+  border: none;
+  border-radius: 50px;
+  height: 40px;
+  width: 300.4px;
+}
+
+.create_account p {
+  color: var(--twitter-white);
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+.terms {
+  color: var(--twitter-gray);
+  font-size: 11.2px;
+  margin: 9.6px 0 0 0;
+  line-height: 11.2px;
+}
+a {
+  color: var(--twitter-color);
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+h4 {
+  margin-top: 64.32px;
+  color: var(--twitter-white);
+}
+.another_button {
+  background: var(--twitter-dark);
+  color: var(--twitter-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20.64px 0 0 0;
+  border: 0.1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  height: 40px;
+  width: 300.4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+footer {
+  display: flex;
+}
+ul {
+  padding: 10px 30px 0 30px;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  color: var(--twitter-gray);
+  justify-content: center;
+}
+ul li {
+  margin: 0 11px 11px 11px;
+  font-size: 12px;
+}
+
+ul li a,
+ul li a:link {
+  color: var(--twitter-gray);
+}
+ul li a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+  .Signup_page {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .Signup {
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .Signup_section {
+    height: 100vh;
+  }
+  footer {
+    background-color: var(--twitter-dark);
+  }
+}
+
+#MainSignup{
+  overflow-x: hidden;
+}
