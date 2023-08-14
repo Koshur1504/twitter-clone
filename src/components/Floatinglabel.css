@@ -27,19 +27,29 @@
   padding-bottom: 9px;
 
   position: absolute;
-  top:30px;
+  top: 30px;
 }
- #default_outlined:focus + label {
+#default_outlined:focus + label {
   padding-left: 7px;
   padding-top: 8px;
   color: var(--twitter-color);
   position: absolute;
-  top: 10px
-  
+  top: 10px;
 }
 .errorborder {
   border-color: red;
 }
-.p3{
+.p3 {
   border: 2px solid rgb(47, 182, 34);
 }
+/* @media only screen and (max-width: 900px) {
+  .p3bd{
+    width: 100% !important;
+    background-color: red;
+    
+  };
+  .p3dobb {
+    width: 100px !important;
+    background-color: orange !important;
+  }
+} */

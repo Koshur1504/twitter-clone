@@ -53,7 +53,12 @@
   position: absolute;
   top: 20px;
 }
-#default_outlined4 + label{
+#default_outlined4 + label {
   margin-top: 15px;
   padding-top: 25px;
+}
+@media only screen and (max-width: 900px) {
+  .p3bd {
+    width: 100% !important;
+  }
 }

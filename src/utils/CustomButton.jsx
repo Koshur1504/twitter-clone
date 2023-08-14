@@ -27,8 +27,7 @@ const CustomButton = ({
       />
     </svg>
   );
-  console.log(loader);
-  console.log(disabled);
+  
 
   const [loading, setLoading] = useState(false);
 
@@ -52,12 +51,12 @@ const CustomButton = ({
 
   return (
     <div
-      className={`w-full rounded-full flex justify-center items-center h-10 ${
+      className={`w-full rounded-full hover:scale-[99%] active:scale-[99%] flex justify-center items-center h-10 overflow-hidden ${
         disabled && "opacity-80"
       } ${loading && "opacity-80"} ${containerStyles}`}
     >
       <button
-        className={`flex h-full border rounded-full w-full justify-center items-center disabled:opacity-90 disabled:cursor-not-allowed `}
+        className={`flex h-full  border rounded-full w-full justify-center items-center disabled:opacity-90 disabled:cursor-not-allowed `}
         onClick={handleClick}
         type={type}
         disabled={disabled ? disabled : loading}

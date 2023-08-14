@@ -11,6 +11,7 @@
   width: 100vw;
   background-color: var(--twitter-dark);
   height: fit-content;
+  height: 100vh;
 }
 .Signup {
   width: 100%;
@@ -172,7 +173,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20.64px 0 0 0;
+  margin: 10px 0 0 0;
   border: 0.1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
   height: 40px;
@@ -190,6 +191,9 @@ ul {
   flex-wrap: wrap;
   color: var(--twitter-gray);
   justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 ul li {
   margin: 0 11px 11px 11px;
@@ -209,24 +213,75 @@ button {
 }
 
 @media only screen and (max-width: 900px) {
+  #MainSignup.Signup_page {
+    overflow-x: hidden;
+  }
   .Signup_page {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 100vh;
   }
   .Signup {
-    height: auto;
+    height: 100vh;
     display: flex;
     flex-direction: column-reverse;
   }
+
   .Signup_section {
     height: 100vh;
+    width: 100%;
   }
+  .Signup_section .iconimage {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0px;
+  }
+  .Signup_section h1,
+  .Signup_section h3,
+  .section {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .Signup_section h3 {
+    padding-top: 40px;
+    padding-left: 0px;
+  }
+  .Signup_section h1 {
+    padding-top: 40px;
+    line-height: 90%;
+    padding-left: 0px;
+  }
+
+  .image,
+  .image img {
+    display: none !important;
+  }
+
   footer {
     background-color: var(--twitter-dark);
   }
+  footer ul {
+    margin-top: -15px;
+  }
 }
 
-#MainSignup{
-  overflow-x: hidden;
+#MainSignup {
+  /* overflow-x: hidden; */
+  height: auto;
+}
+@media only screen and (max-width: 400px) {
+  #MainSignup {
+    height: auto;
+    min-width: 375px;
+  }
+  .Signup_section {
+    height: auto;
+  }
+  footer {
+    margin-top: 20px;
+  }
+  .modal {
+    width: 90% !important;
+  }
 }

@@ -138,8 +138,8 @@ const ModalContent_4 = ({
       />
       {error.passError.valid === false && <p>Password is not strong.</p>}
       {error.passError.match === false && <p>Password does not match.</p>}
-      <button
-        className={`next__button  ${anyError.p4 === false && "btnEnable"}`}
+      <button 
+        className={`next__button  disabled:cursor-not-allowed ${anyError.p4 === false && "btnEnable"}`}
         onClick={(e) => buttonHandler(e)}
       >
         Next

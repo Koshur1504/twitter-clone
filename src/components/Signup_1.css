@@ -109,14 +109,40 @@
   color: var(--twitter-dark);
   background-color: var(--twitter-gray);
   cursor: default;
-  
 }
 .btnEnable {
   background-color: var(--twitter-white);
 }
-.p3p{
+.p3p {
   color: var(--twitter-gray);
   font-size: 12px;
   margin-top: auto;
   margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 900px) {
+  .modal_ {
+    background-color: rgb(24, 34, 36);
+    height: 100%;
+  }
+  .modal {
+    width: 400px;
+  }
+  .modal_content {
+    width: 90%;
+    margin-left: auto;
+  }
+  .next__button {
+    width: calc(80%);
+    position: static;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+  }
+  .dob_consent {
+    font-size: auto;
+  }
+}
+

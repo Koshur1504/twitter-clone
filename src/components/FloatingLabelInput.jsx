@@ -210,7 +210,7 @@ const FloatingBirthLabelInput = ({
   page,
 }) => {
   return (
-    <div class="relative p3dobb">
+    <div class="relative p3dobb w-full">
       <input
         type="text"
         id="default_outlined4"
@@ -253,7 +253,7 @@ const FloatingAnyLabelInput = ({
       <input
         name={name}
         type={type}
-        id="default_outlined"
+        id="default_outlined1122"
         className={`default_outlined block px-2.5 pb-2.5 pt-4 w-full text-lg text-gray-900 border-solid bg-transparent rounded-lg border-1 border-gray-100 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer 
        `}
         placeholder=" "

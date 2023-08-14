@@ -48,9 +48,11 @@ const Signup_1 = ({
     <div className="modal_">
       <div className="modal">
         <div className="modal_head">
-          <button className="cross__button" onClick={handleModal}>
-            <CloseIcon className="cross" />
-          </button>
+          <CloseIcon
+            className="cross  hover:!bg-[rgba(255,255,255,0.1)] border-1 rounded-full !p-2 !box-content hover:bg-[rgb(255, 255, 255, 0.2)] !mb-[-4px]"
+            onClick={handleModal}
+          />
+
           <h3 className="modal_step">Step {page} of 5</h3>
         </div>
         {page === 1 && (
@@ -99,7 +101,7 @@ const Signup_1 = ({
             setErrorMsg={setErrorMsg}
           />
         )}
-        {page ===5 && <ModalContent_5  setPage={setPage} />}
+        {page === 5 && <ModalContent_5 setPage={setPage} />}
       </div>
     </div>
   );

@@ -85,20 +85,24 @@ const Signup = () => {
     "Brand Resources",
     "Advertising",
     "Marketing",
-    "Twitter for Business",
     "Developers",
     "Directory",
     "Settings",
     "© 2023 X Corp.",
   ];
   return (
-    <div id="MainSignup" className={`Signup_page ${open && "hiddenscroll"}`}>
+    <div
+      id="MainSignup"
+      className={`Signup_page ${login && "hiddenscroll "} ${
+        open && "hiddenscroll"
+      }`}
+    >
       <div className="Signup">
         <div className="image">
           <img src={x} alt="" />
         </div>
         <div className="Signup_section">
-          <img src={x} alt="" />
+          <img className="iconimage" src={x} alt="" />
           <h1>Happening now</h1>
           <h3>Join Twitter today.</h3>
           <div className="section">
@@ -132,15 +136,17 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <footer>
-        <ul>
-          {footerLinks.map((item) => (
-            <li key={item} className="footer_item">
-              <a>{item}</a>
-            </li>
-          ))}
-        </ul>
-      </footer>
+      {!login && !open && (
+        <footer>
+          <ul>
+            {footerLinks.map((item) => (
+              <li key={item} className="footer_item">
+                <a>{item}</a>
+              </li>
+            ))}
+          </ul>
+        </footer>
+      )}
       {open && (
         <Signup_1
           handleModal={handleModal}

@@ -79,10 +79,10 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
   };
 
   return (
-    <div className={`loginPage  `}>
+    <div className={`loginPage`}>
       <div className="Modal">
         <button className="cross__button" onClick={handleModal}>
-          <CloseIcon className="cross" />
+          <CloseIcon className="cross hover:!bg-[rgba(255,255,255,0.1)] border-1 rounded-full !p-2 !box-content hover:bg-[rgb(255, 255, 255, 0.2)] !mb-[-4px]" />
         </button>
         <div className="login">
           <img className="X_image" src={x} alt="" />
@@ -91,7 +91,7 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
               <h1>Sign in to X</h1>
               <CustomButton
                 text="Sign in with Google"
-                containerStyles={"bg-white mt-4 mb-4"}
+                containerStyles={"bg-white mt-4 mb-4 responsive"}
                 icon={google}
                 onClick={handleGoogle}
                 loader="true"
@@ -141,7 +141,7 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
                 <CustomButton
                   type="submit"
                   text="Sign in"
-                  containerStyles={"bg-white mb-4"}
+                  containerStyles={"bg-white mb-4 responsive"}
                   loader="true"
                   disabled={isSubmitting}
                 />
@@ -149,7 +149,7 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
               <CustomButton
                 text="Forgot Password?"
                 textColor="text-white"
-                containerStyles="border"
+                containerStyles="border responsive"
                 loader="true"
                 onClick={handleForgotPassword}
               />
@@ -159,9 +159,19 @@ const Login = ({ handleX, page, setPage, openSignUp }) => {
               <ForgotPassword />
             </>
           )}
-
-          <p className="para mt-auto mb-16">
-            Don't have an account?{" "}
+          {forgotPassword && (
+            <p className="para mt-auto ">
+              Back to{" "}
+              <a
+                className="hover:cursor-pointer"
+                onClick={() => setForgotPassword((old) => false)}
+              >
+                Login
+              </a>
+            </p>
+          )}
+          <p className={`para mb-16 ${!forgotPassword && "mt-auto"}`}>
+            Don't have an account?&nbsp;
             <a className="hover:cursor-pointer" onClick={signupButton}>
               Sign up
             </a>
