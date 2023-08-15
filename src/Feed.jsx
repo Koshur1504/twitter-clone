@@ -5,16 +5,12 @@ import Post from "./Post";
 import { db } from "./firebase";
 import { getDocs, collection } from "firebase/firestore";
 import FlipMove from "react-flip-move";
-import {useFirebase} from './context/Firebase'
+import { useFirebase } from "./context/Firebase";
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
   const postCollectionRef = collection(db, "posts");
-  const firebase = useFirebase()
-
-  
-
-  
+  const firebase = useFirebase();
 
   const getPost = async () => {
     try {
@@ -24,15 +20,15 @@ const Feed = () => {
     } catch (error) {
       console.log(error);
     }
-    
   };
+
   useEffect(() => {
     getPost();
   }, []);
 
   return (
     <div className="feed">
-      <div className="feed__header">
+      <div className="feed__header" id="sticky">
         <h2>Home</h2>
       </div>
       <TweetBox postCollectionRef={postCollectionRef} getPost={getPost} />
@@ -44,7 +40,7 @@ const Feed = () => {
             username={post.username}
             verified
             text={post.text}
-            avatar={post.avatar}
+            avatar={post.photoURL}
             image={post.image}
           />
         ))}
