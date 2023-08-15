@@ -33,8 +33,8 @@ const Sidebar = () => {
       <SidebarOption Icon={ListAltIcon} text={'Lists'}/>
       <SidebarOption Icon={PermIdentityIcon} text={'Profile'}/>
       <SidebarOption Icon={MoreHorizIcon} text={'More'}/>
-      <Button variant="outlined" className="sidebar__tweet" fullWidth>Tweet</Button>
-      <Button variant="outlined" className="sidebar__tweet" fullWidth onClick={handlelogout}>Logout</Button>
+      {/* <Button variant="outlined" className="sidebar__tweet" fullWidth>Tweet</Button> */}
+      <Button  variant="outlined" className="sidebar__tweet2" fullWidth onClick={handlelogout}>Logout</Button>
     </div>
   );
 };

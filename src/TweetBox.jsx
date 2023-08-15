@@ -6,11 +6,10 @@ import { useFirebase } from "./context/Firebase";
 
 const TweetBox = ({ postCollectionRef, getPost }) => {
   const [tweetMessage, setTweetMessage] = useState("");
-  const firebase = useFirebase()
-  const user = firebase.user
+  const firebase = useFirebase();
+  const user = firebase.user;
 
-  
-  
+  console.log(user.photoURL);
 
   const sendTweet = async (e) => {
     e.preventDefault();
@@ -18,22 +17,23 @@ const TweetBox = ({ postCollectionRef, getPost }) => {
     await addDoc(postCollectionRef, {
       id: new Date(),
       displayName: user.displayName,
-      image:
-        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      // image:
+      //   "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      photoURL: user.photoURL,
       text: tweetMessage,
-      username: user.username,
-      verified:'',
+      username: `${user.email.substring(0, user.email.indexOf(`@`))}`,
+      verified: "",
     });
 
     setTweetMessage("");
     getPost();
   };
- 
+
   return (
     <div className="tweetBox">
       <form onSubmit={(e) => sendTweet(e)}>
         <div className="tweetBox__input">
-          <Avatar src={user?.photoURL} />
+          <Avatar src={user.photoURL} />
           <input
             value={tweetMessage}
             onChange={(e) => setTweetMessage(e.target.value)}
@@ -45,7 +45,6 @@ const TweetBox = ({ postCollectionRef, getPost }) => {
           Tweet
         </Button>
       </form>
-      <p>{tweetMessage}</p>
     </div>
   );
 };
